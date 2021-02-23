@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:m_karmik/login.dart';
+import 'menu/duty/duties.dart';
 
 class Menu extends StatefulWidget {
   @override
@@ -38,10 +39,15 @@ class _MenuState extends State<Menu> {
               child: GridView.count(
                 crossAxisCount: 2,
                 children: <Widget>[
-                  Card(
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => Login()));
+                  },
+                  child: Card(
                     // card 1:Profile
-                    color: Colors.white,
-                    // color: Colors.deepOrange,
+                    // color: Colors.white,
+                    color: Colors.deepOrange,
                     elevation: 8.0,
                     // margin: EdgeInsets.only(top: 10.0, left: 10.0, right: 20.0),
                     margin: EdgeInsets.all(10.0),
@@ -59,18 +65,18 @@ class _MenuState extends State<Menu> {
                                   fontWeight: FontWeight.bold),
                             )),
                       ],
-                      /*onTap: () {
-                        debugPrint("Card Tapped");
-                        Navigator.push(context, MaterialPageRoute(builder: (context){
-                          return Login();
-                        }));
-                      },*/
                     ),
                   ),
-                  Card(
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => Duty()));
+                  },
+                  child: Card(
                     // card 2:Duty
-                    color: Colors.white,
-                    // color: Colors.lightGreenAccent,
+                    // color: Colors.white,
+                    color: Colors.lightGreenAccent,
                     elevation: 8.0,
                     // margin: EdgeInsets.only(top: 80.0, left: 20.0, right: 20.0),
                     margin: EdgeInsets.all(10.0),
@@ -90,10 +96,13 @@ class _MenuState extends State<Menu> {
                       ],
                     ),
                   ),
+                ),
+
+
                   Card(
                     // card 3:CONTACT
-                    color: Colors.white,
-                    // color: Colors.yellowAccent,
+                    // color: Colors.white,
+                    color: Colors.yellowAccent,
                     elevation: 8.0,
                     // margin: EdgeInsets.only(top: 80.0, left: 20.0, right: 20.0),
                     margin: EdgeInsets.all(10.0),
@@ -115,8 +124,8 @@ class _MenuState extends State<Menu> {
                   ),
                   Card(
                     // card 4:REPORT
-                    color: Colors.white,
-                    // color: Colors.redAccent,
+                    // color: Colors.white,
+                    color: Colors.redAccent,
                     elevation: 8.0,
                     // margin: EdgeInsets.only(top: 80.0, left: 20.0, right: 20.0),
                     margin: EdgeInsets.all(10.0),
@@ -138,8 +147,8 @@ class _MenuState extends State<Menu> {
                   ),
                   Card(
                     // card 5: HELP
-                    color: Colors.white,
-                    // color: Colors.purpleAccent,
+                    // color: Colors.white,
+                    color: Colors.purpleAccent,
                     elevation: 8.0,
                     // margin: EdgeInsets.only(top: 80.0, left: 20.0, right: 20.0),
                     margin: EdgeInsets.all(10.0),
@@ -161,8 +170,8 @@ class _MenuState extends State<Menu> {
                   ),
                   Card(
                     // card 6: FAQ
-                    color: Colors.white,
-                    // color: Colors.greenAccent,
+                    // color: Colors.white,
+                    color: Colors.greenAccent,
                     elevation: 8.0,
                     // margin: EdgeInsets.only(top: 80.0, left: 20.0, right: 20.0),
                     margin: EdgeInsets.all(10.0),

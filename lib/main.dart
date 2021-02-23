@@ -9,13 +9,13 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
-  final Color darkBlue = Color.fromARGB(255, 5, 31, 56);
+  // final Color darkBlue = Color.fromARGB(255, 5, 31, 56);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'm-Karmik app',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: darkBlue),
+      // theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: darkBlue),
       home: Login(),
     );
   }
