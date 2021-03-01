@@ -57,6 +57,7 @@ flutter:
     - images/report.png
     - images/help.png
     - images/faq.png
+    - images/jhr.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

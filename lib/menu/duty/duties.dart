@@ -5,6 +5,7 @@ import 'view.dart';
 import 'joining.dart';
 import 'relieving.dart';
 import 'previous_duty.dart';
+import 'joining_letter.dart';
 
 class Duty extends StatefulWidget {
   @override
@@ -199,10 +200,10 @@ class _DutyState extends State<Duty> {
                   Padding(
                     padding: EdgeInsets.only(bottom: 0.0),
                     child: GestureDetector(
-                      /*onTap: () {
+                      onTap: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Login()));
-                      },*/
+                            MaterialPageRoute(builder: (context) => JoiningLetter()));
+                      },
                       child: Card(
                         // color: Colors.white,
                         color: Colors.deepOrange[400],
@@ -214,9 +215,9 @@ class _DutyState extends State<Duty> {
                             // buildNicBanner(),
                             // Center(child: buildNicLogo()),
                             Container(
-                                margin: EdgeInsets.only(top: 12.0, left: 50.0, bottom: 10.0),
+                                margin: EdgeInsets.only(top: 12.0, left: 70.0, bottom: 10.0),
                                 child: Text(
-                                  'Download Appointment letter',
+                                  'Download Joining Letter',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 20.0,
