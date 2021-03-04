@@ -75,7 +75,7 @@ class _ViewState extends State<View> {
   }
   // todo: ImageAssets
   Widget buildNicLogo() {
-    AssetImage assetImage = AssetImage('images/nic2.png');
+    AssetImage assetImage = AssetImage('images/nic2_w.png');
     Image image = Image(
       image: assetImage,
       width: 200.0,

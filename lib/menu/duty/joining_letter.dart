@@ -10,7 +10,7 @@ class JoiningLetter extends StatefulWidget {
 }
 
 class _JoiningLetterState extends State<JoiningLetter> {
-  var _districts  = ['Ranchi', 'Gumla', 'Khunti'];
+  var _districts = ['Ranchi', 'Gumla', 'Khunti'];
   var _currentItemSelected = null; // for dropdown
   @override
   Widget build(BuildContext context) {
@@ -20,8 +20,8 @@ class _JoiningLetterState extends State<JoiningLetter> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(child: Text('m-Karmik App')
-              // padding: const EdgeInsets.all(8.0), child: Text('m-Karmik App')
-            ),
+                // padding: const EdgeInsets.all(8.0), child: Text('m-Karmik App')
+                ),
             Expanded(
               child: buildNicLogo(),
             ),
@@ -41,18 +41,23 @@ class _JoiningLetterState extends State<JoiningLetter> {
                 Padding(
                   padding: EdgeInsets.only(bottom: 0.0),
                   child: GestureDetector(
-                    onTap: () { Navigator.pop(context);},
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
                     child: CircleAvatar(
                       radius: 45,
                       backgroundColor: Colors.white,
-                      child: buildJhrLogo(),),
+                      child: buildJhrLogo(),
                     ),
                   ),
+                ),
                 // ),
                 Padding(
                   padding: EdgeInsets.only(bottom: 0.0),
                   child: GestureDetector(
-                    onTap: () { Navigator.pop(context);},
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
                     child: Card(
                       // color: Colors.white,
                       color: Colors.lightGreenAccent,
@@ -64,7 +69,8 @@ class _JoiningLetterState extends State<JoiningLetter> {
                           // buildNicBanner(),
                           // Center(child: buildNicLogo()),
                           Container(
-                              margin: EdgeInsets.only(top: 5.0, left: 150.0, bottom: 5.0),
+                              margin: EdgeInsets.only(
+                                  top: 5.0, left: 150.0, bottom: 5.0),
                               child: Text(
                                 'Ranchi',
                                 style: TextStyle(
@@ -80,7 +86,9 @@ class _JoiningLetterState extends State<JoiningLetter> {
                 Padding(
                   padding: EdgeInsets.only(bottom: 15.0),
                   child: GestureDetector(
-                    onTap: () { Navigator.pop(context);},
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
                     child: Card(
                       // color: Colors.white,
                       color: Colors.lightGreenAccent,
@@ -92,7 +100,8 @@ class _JoiningLetterState extends State<JoiningLetter> {
                           // buildNicBanner(),
                           // Center(child: buildNicLogo()),
                           Container(
-                              margin: EdgeInsets.only(top: 5.0, left: 150.0, bottom: 5.0),
+                              margin: EdgeInsets.only(
+                                  top: 5.0, left: 150.0, bottom: 5.0),
                               child: Text(
                                 'Ranchi',
                                 style: TextStyle(
@@ -105,20 +114,21 @@ class _JoiningLetterState extends State<JoiningLetter> {
                     ),
                   ),
                 ),
-                Padding(padding: EdgeInsets.only(top: 20.0,bottom: 0.0, left: 10.0, right: 10.0),
-                    child: Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: Text('PIN No. :',
-                            style: TextStyle(
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold
-                            ),
-                          ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: 20.0, bottom: 0.0, left: 10.0, right: 10.0),
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Text(
+                          'PIN No. :',
+                          style: TextStyle(
+                              fontSize: 20.0, fontWeight: FontWeight.bold),
                         ),
-                        // todo: creating a dropdown
-                        Container(width:25.0 ), // for difference btn term & dd
-                        /*Expanded(
+                      ),
+                      // todo: creating a dropdown
+                      Container(width: 25.0), // for difference btn term & dd
+                      /*Expanded(
                             child: Text('123456',
                             style: TextStyle(
                                 fontSize: 20.0,
@@ -126,176 +136,174 @@ class _JoiningLetterState extends State<JoiningLetter> {
                             ),
                           ),
                         ),*/
-                        // second
-
-                      ],
-                    ),
-                ),
-                // =============================
-                Padding(padding: EdgeInsets.only(top: 20.0,bottom: 0.0, left: 10.0, right: 10.0),
-                  child: Row(
-                    children: <Widget>[
-                      Expanded(
-                        child: Text('Officer Name :',
-                          style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold
-                          ),
-                        ),
-                      ),
-                      // todo: creating a dropdown
-                      Container(width:25.0 ), // for difference btn term & dd
-                      /*Expanded(
-                            child:   ,
-                        ),*/
                       // second
-
                     ],
                   ),
                 ),
                 // =============================
-                Padding(padding: EdgeInsets.only(top: 20.0,bottom: 0.0, left: 10.0, right: 10.0),
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: 20.0, bottom: 0.0, left: 10.0, right: 10.0),
                   child: Row(
                     children: <Widget>[
                       Expanded(
-                        child: Text('Office Name :',
+                        child: Text(
+                          'Officer Name :',
                           style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold
-                          ),
+                              fontSize: 20.0, fontWeight: FontWeight.bold),
                         ),
                       ),
                       // todo: creating a dropdown
-                      Container(width:25.0 ), // for difference btn term & dd
+                      Container(width: 25.0), // for difference btn term & dd
                       /*Expanded(
                             child:   ,
                         ),*/
                       // second
-
                     ],
                   ),
                 ),
                 // =============================
-                Padding(padding: EdgeInsets.only(top: 20.0,bottom: 0.0, left: 10.0, right: 10.0),
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: 20.0, bottom: 0.0, left: 10.0, right: 10.0),
                   child: Row(
                     children: <Widget>[
                       Expanded(
-                        child: Text('Duty Type :',
+                        child: Text(
+                          'Office Name :',
                           style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold
-                          ),
+                              fontSize: 20.0, fontWeight: FontWeight.bold),
                         ),
                       ),
                       // todo: creating a dropdown
-                      Container(width:25.0 ), // for difference btn term & dd
+                      Container(width: 25.0), // for difference btn term & dd
                       /*Expanded(
                             child:   ,
                         ),*/
                       // second
-
                     ],
                   ),
                 ),
                 // =============================
-                Padding(padding: EdgeInsets.only(top: 20.0,bottom: 0.0, left: 10.0, right: 10.0),
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: 20.0, bottom: 0.0, left: 10.0, right: 10.0),
                   child: Row(
                     children: <Widget>[
                       Expanded(
-                        child: Text('Duty Location :',
+                        child: Text(
+                          'Duty Type :',
                           style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold
-                          ),
+                              fontSize: 20.0, fontWeight: FontWeight.bold),
                         ),
                       ),
                       // todo: creating a dropdown
-                      Container(width:25.0 ), // for difference btn term & dd
+                      Container(width: 25.0), // for difference btn term & dd
                       /*Expanded(
                             child:   ,
                         ),*/
                       // second
-
                     ],
                   ),
                 ),
                 // =============================
-                Padding(padding: EdgeInsets.only(top: 20.0,bottom: 0.0, left: 10.0, right: 10.0),
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: 20.0, bottom: 0.0, left: 10.0, right: 10.0),
                   child: Row(
                     children: <Widget>[
                       Expanded(
-                        child: Text('Duty Address :',
+                        child: Text(
+                          'Duty Location :',
                           style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold
-                          ),
+                              fontSize: 20.0, fontWeight: FontWeight.bold),
                         ),
                       ),
                       // todo: creating a dropdown
-                      Container(width:25.0 ), // for difference btn term & dd
+                      Container(width: 25.0), // for difference btn term & dd
                       /*Expanded(
                             child:   ,
                         ),*/
                       // second
-
                     ],
                   ),
                 ),
                 // =============================
-                Padding(padding: EdgeInsets.only(top: 20.0,bottom: 0.0, left: 10.0, right: 10.0),
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: 20.0, bottom: 0.0, left: 10.0, right: 10.0),
                   child: Row(
                     children: <Widget>[
                       Expanded(
-                        child: Text('Shift :',
+                        child: Text(
+                          'Duty Address :',
                           style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold
-                          ),
+                              fontSize: 20.0, fontWeight: FontWeight.bold),
                         ),
                       ),
                       // todo: creating a dropdown
-                      Container(width:25.0 ), // for difference btn term & dd
+                      Container(width: 25.0), // for difference btn term & dd
                       /*Expanded(
                             child:   ,
                         ),*/
                       // second
-
                     ],
                   ),
                 ),
                 // =============================
-                Padding(padding: EdgeInsets.only(top: 20.0,bottom: 0.0, left: 10.0, right: 10.0),
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: 20.0, bottom: 0.0, left: 10.0, right: 10.0),
                   child: Row(
                     children: <Widget>[
                       Expanded(
-                        child: Text('From :',
+                        child: Text(
+                          'Shift :',
                           style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold
-                          ),
+                              fontSize: 20.0, fontWeight: FontWeight.bold),
                         ),
                       ),
                       // todo: creating a dropdown
-                      Container(width:25.0 ), // for difference btn term & dd
+                      Container(width: 25.0), // for difference btn term & dd
+                      /*Expanded(
+                            child:   ,
+                        ),*/
+                      // second
+                    ],
+                  ),
+                ),
+                // =============================
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: 20.0, bottom: 0.0, left: 10.0, right: 10.0),
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Text(
+                          'From :',
+                          style: TextStyle(
+                              fontSize: 20.0, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      // todo: creating a dropdown
+                      Container(width: 25.0), // for difference btn term & dd
                       /*Expanded(
                             child:   ,
                         ),*/
                       // To Date
                       Expanded(
-                        child: Text('To :',
+                        child: Text(
+                          'To :',
                           style: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold
-                          ),
+                              fontSize: 20.0, fontWeight: FontWeight.bold),
                         ),
                       ),
                       // todo: creating a dropdown
-                      Container(width:25.0 ), // for difference btn term & dd
+                      Container(width: 25.0), // for difference btn term & dd
                       /*Expanded(
                             child:   ,
                         ),*/
                     ],
-
                   ),
                 ),
               ]),
@@ -304,11 +312,11 @@ class _JoiningLetterState extends State<JoiningLetter> {
         ),
       ),
     );
-
   }
+
   // todo: ImageAssets
   Widget buildNicLogo() {
-    AssetImage assetImage = AssetImage('images/nic2.png');
+    AssetImage assetImage = AssetImage('images/nic2_w.png');
     Image image = Image(
       image: assetImage,
       width: 200.0,
@@ -319,6 +327,7 @@ class _JoiningLetterState extends State<JoiningLetter> {
       margin: EdgeInsets.only(left: 50.0, top: 18.0, bottom: 20.0),
     );
   }
+
   // todo: ImageAssets logo
   Widget buildJhrLogo() {
     AssetImage assetImage = AssetImage('images/jhr.png');

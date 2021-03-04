@@ -1,23 +1,59 @@
 import 'package:flutter/material.dart';
-import 'package:m_karmik/login.dart';
-// import 'login.dart';
-// import 'otp.dart';
+import 'pages/menu.dart';
+import 'pages/login.dart';
+import 'pages/shared_service.dart';
 
-void main() {
+Widget _defaultHome = new Login();
+
+// checking weather user is loggedIn or not
+//on that basis redirection of page will be done
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // Set default home.
+
+  // Get result of the login function.
+  bool _isLoggedIn = await SharedService.isLoggedIn();
+  if (_isLoggedIn) {
+    _defaultHome = new Login();
+  }
+
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  // final Color darkBlue = Color.fromARGB(255, 5, 31, 56);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'm-Karmik app',
+      title: 'Dashboard',
       debugShowCheckedModeBanner: false,
-      // theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: darkBlue),
-      home: Login(),
+      theme: ThemeData(
+        fontFamily: 'Poppins',
+        primaryColor: Colors.white,
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          elevation: 10,
+          foregroundColor: Colors.black,
+        ),
+        accentColor: Colors.lightBlueAccent,
+        textTheme: TextTheme(
+          headline1: TextStyle(fontSize: 22.0, color: Colors.white60),
+          headline2: TextStyle(
+            fontSize: 24.0,
+            fontWeight: FontWeight.w700,
+            color: Colors.white60,
+          ),
+          bodyText1: TextStyle(
+            fontSize: 14.0,
+            fontWeight: FontWeight.w400,
+            color: Colors.blueAccent,
+          ),
+        ),
+      ),
+      home: _defaultHome,
+      routes: <String, WidgetBuilder>{
+        // Set routes for using the Navigator.
+        '/home': (BuildContext context) => new Menu(),
+        '/login': (BuildContext context) => new Login()
+      },
     );
   }
 }
-

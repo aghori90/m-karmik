@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:m_karmik/login.dart';
-import 'menu/duty/duties.dart';
+import '../menu/profile/profile.dart';
+import '../menu/duty/duties.dart';
+import '../pages/shared_service.dart';
 
 class Menu extends StatefulWidget {
   @override
@@ -16,17 +17,23 @@ class _MenuState extends State<Menu> {
     return Scaffold(
       appBar: AppBar(
         // title: Text('m-Karmik App'),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-                child: Text('m-Karmik App')
-                // padding: const EdgeInsets.all(8.0), child: Text('m-Karmik App')
-            ),
-            Expanded(child: buildNicLogo(),),
-
-          ],
+        title: Text(
+          'm-Karmik App',
+          style: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 25, color: Colors.blue),
         ),
+        leading: buildNicLogo(),
+        leadingWidth: 130.0,
+        actions: [
+          IconButton(
+              icon: Icon(Icons.logout),
+              onPressed: () {
+                SharedService.logout().then((value) {
+                  if (value)
+                    Navigator.of(context).pushReplacementNamed('/login');
+                });
+              })
+        ],
       ),
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
@@ -39,66 +46,64 @@ class _MenuState extends State<Menu> {
               child: GridView.count(
                 crossAxisCount: 2,
                 children: <Widget>[
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => Login()));
-                  },
-                  child: Card(
-                    // card 1:Profile
-                    // color: Colors.white,
-                    color: Colors.deepOrange,
-                    elevation: 8.0,
-                    // margin: EdgeInsets.only(top: 10.0, left: 10.0, right: 20.0),
-                    margin: EdgeInsets.all(10.0),
-                    child: Stack(
-                      children: <Widget>[
-                        // buildNicBanner(),
-                        Center(child: buildProfile()),
-                        Container(
-                            margin: EdgeInsets.only(top: 135.0, left: 58.0),
-                            child: Text(
-                              'Profile',
-                              style: TextStyle(
-                                  color: Colors.black87,
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold),
-                            )),
-                      ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Profile()));
+                    },
+                    child: Card(
+                      // card 1:Profile
+                      // color: Colors.white,
+                      color: Colors.deepOrange,
+                      elevation: 8.0,
+                      // margin: EdgeInsets.only(top: 10.0, left: 10.0, right: 20.0),
+                      margin: EdgeInsets.all(10.0),
+                      child: Stack(
+                        children: <Widget>[
+                          // buildNicBanner(),
+                          Center(child: buildProfile()),
+                          Container(
+                              margin: EdgeInsets.only(top: 135.0, left: 58.0),
+                              child: Text(
+                                'Profile',
+                                style: TextStyle(
+                                    color: Colors.black87,
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.bold),
+                              )),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => Duty()));
-                  },
-                  child: Card(
-                    // card 2:Duty
-                    // color: Colors.white,
-                    color: Colors.lightGreenAccent,
-                    elevation: 8.0,
-                    // margin: EdgeInsets.only(top: 80.0, left: 20.0, right: 20.0),
-                    margin: EdgeInsets.all(10.0),
-                    child: Stack(
-                      children: <Widget>[
-                        // buildNicBanner(),
-                        Center(child: buildDuty()),
-                        Container(
-                            margin: EdgeInsets.only(top: 135.0, left: 67.0),
-                            child: Text(
-                              'Duty',
-                              style: TextStyle(
-                                  color: Colors.black87,
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold),
-                            )),
-                      ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Duty()));
+                    },
+                    child: Card(
+                      // card 2:Duty
+                      // color: Colors.white,
+                      color: Colors.lightGreenAccent,
+                      elevation: 8.0,
+                      // margin: EdgeInsets.only(top: 80.0, left: 20.0, right: 20.0),
+                      margin: EdgeInsets.all(10.0),
+                      child: Stack(
+                        children: <Widget>[
+                          // buildNicBanner(),
+                          Center(child: buildDuty()),
+                          Container(
+                              margin: EdgeInsets.only(top: 135.0, left: 67.0),
+                              child: Text(
+                                'Duty',
+                                style: TextStyle(
+                                    color: Colors.black87,
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.bold),
+                              )),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-
-
                   Card(
                     // card 3:CONTACT
                     // color: Colors.white,
@@ -199,6 +204,7 @@ class _MenuState extends State<Menu> {
       ),
     );
   }
+
   // todo: ImageAssets
   Widget buildNicBanner() {
     AssetImage assetImage = AssetImage('images/nic.png');
@@ -218,12 +224,12 @@ class _MenuState extends State<Menu> {
     AssetImage assetImage = AssetImage('images/nic2.png');
     Image image = Image(
       image: assetImage,
-      width: 200.0,
-      height: 200.0,
+      width: 5000.0,
+      height: 5000.0,
     );
     return Container(
       child: image,
-      margin: EdgeInsets.only(left: 50.0, top: 18.0, bottom: 20.0),
+      margin: EdgeInsets.only(left: 10.0, top: 0.0, bottom: 0.0),
     );
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:m_karmik/menu.dart';
+import 'package:m_karmik/pages/shared_service.dart';
+import '../../pages/menu.dart';
 import 'view.dart';
 import 'joining.dart';
 import 'relieving.dart';
@@ -18,17 +19,24 @@ class _DutyState extends State<Duty> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(child: Text('m-Karmik App')
-                // padding: const EdgeInsets.all(8.0), child: Text('m-Karmik App')
-                ),
-            Expanded(
-              child: buildNicLogo(),
-            ),
-          ],
+        // title: Text('m-Karmik App'),
+        title: Text(
+          'm-Karmik App',
+          style: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 25, color: Colors.blue),
         ),
+        leading: buildNicLogo(),
+        leadingWidth: 130.0,
+        actions: [
+          IconButton(
+              icon: Icon(Icons.logout),
+              onPressed: () {
+                SharedService.logout().then((value) {
+                  if (value)
+                    Navigator.of(context).pushReplacementNamed('/login');
+                });
+              })
+        ],
       ),
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.dark,
@@ -61,38 +69,6 @@ class _DutyState extends State<Duty> {
                                   style: TextStyle(
                                       color: Colors.blue,
                                       fontSize: 40.0,
-                                      fontWeight: FontWeight.bold),
-                                )),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  // todo: card:2 => View
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 0.0),
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => View()));
-                      },
-                      child: Card(
-                        // color: Colors.white,
-                        color: Colors.deepOrange[400],
-                        elevation: 8.0,
-                        // margin: EdgeInsets.only(top: 10.0, left: 10.0, right: 20.0),
-                        margin: EdgeInsets.all(10.0),
-                        child: Stack(
-                          children: <Widget>[
-                            // buildNicBanner(),
-                            // Center(child: buildNicLogo()),
-                            Container(
-                                margin: EdgeInsets.only(top: 12.0, left: 150.0, bottom: 10.0),
-                                child: Text(
-                                  'View',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 20.0,
                                       fontWeight: FontWeight.bold),
                                 )),
                           ],
@@ -247,7 +223,7 @@ class _DutyState extends State<Duty> {
     );
     return Container(
       child: image,
-      margin: EdgeInsets.only(left: 50.0, top: 18.0, bottom: 20.0),
+      margin: EdgeInsets.only(left: 10.0,),
     );
   }
 }

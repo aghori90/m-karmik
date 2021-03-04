@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:m_karmik/pages/shared_service.dart';
 
 class Relieving extends StatefulWidget {
   @override
@@ -16,17 +17,24 @@ class _RelievingState extends State<Relieving> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(child: Text('m-Karmik App')
-              // padding: const EdgeInsets.all(8.0), child: Text('m-Karmik App')
-            ),
-            Expanded(
-              child: buildNicLogo(),
-            ),
-          ],
+        // title: Text('m-Karmik App'),
+        title: Text(
+          'm-Karmik App',
+          style: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 25, color: Colors.blue),
         ),
+        leading: buildNicLogo(),
+        leadingWidth: 130.0,
+        actions: [
+          IconButton(
+              icon: Icon(Icons.logout),
+              onPressed: () {
+                SharedService.logout().then((value) {
+                  if (value)
+                    Navigator.of(context).pushReplacementNamed('/login');
+                });
+              })
+        ],
       ),
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.dark,
@@ -165,12 +173,14 @@ class _RelievingState extends State<Relieving> {
     );
 
   }
+
   // todo: function for dropdown: dist,blk,vill
   void _onDropDownItemSelected(String newValueSelected) {
     setState(() {
       this._currentItemSelected = newValueSelected;
     });
   }
+
   // todo: ImageAssets
   Widget buildNicLogo() {
     AssetImage assetImage = AssetImage('images/nic2.png');
@@ -181,7 +191,7 @@ class _RelievingState extends State<Relieving> {
     );
     return Container(
       child: image,
-      margin: EdgeInsets.only(left: 50.0, top: 18.0, bottom: 20.0),
+      margin: EdgeInsets.only(left: 10.0),
     );
   }
 }
